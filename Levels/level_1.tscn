@@ -1,0 +1,344 @@
+[gd_scene load_steps=6 format=3 uid="uid://cmeqt2d1lnsl5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_in21o"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_upmt1"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_588hs"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cfwwo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ja6lf"]
+
+[node name="Level1" type="Node3D"]
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(150, 0, 0, 0, 1, 0, 0, 0, 150, 0, 0, 0)
+mesh = SubResource("BoxMesh_in21o")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(150, 0, 0, 0, 1, 0, 0, 0, 150, 0, 0, 0)
+shape = SubResource("BoxShape3D_upmt1")
+
+[node name="Ceiling" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ceiling"]
+transform = Transform3D(150, 0, 0, 0, 1, 0, 0, 0, 150, 0, 0, 0)
+mesh = SubResource("BoxMesh_in21o")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ceiling"]
+transform = Transform3D(150, 0, 0, 0, 1, 0, 0, 0, 150, 0, 0, 0)
+shape = SubResource("BoxShape3D_upmt1")
+
+[node name="Walls" type="Node3D" parent="."]
+
+[node name="Wall1" type="StaticBody3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -75)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/Wall1"]
+transform = Transform3D(150, 0, 0, 0, 5, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_588hs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/Wall1"]
+transform = Transform3D(150, 0, 0, 0, 5, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_cfwwo")
+
+[node name="Wall2" type="StaticBody3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 75)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/Wall2"]
+transform = Transform3D(150, 0, 0, 0, 5, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_588hs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/Wall2"]
+transform = Transform3D(150, 0, 0, 0, 5, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_cfwwo")
+
+[node name="Wall3" type="StaticBody3D" parent="Walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 75, 2.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/Wall3"]
+transform = Transform3D(150, 0, 0, 0, 5, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_588hs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/Wall3"]
+transform = Transform3D(150, 0, 0, 0, 5, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_cfwwo")
+
+[node name="Wall4" type="StaticBody3D" parent="Walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -75, 2.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/Wall4"]
+transform = Transform3D(150, 0, 0, 0, 5, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_588hs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/Wall4"]
+transform = Transform3D(150, 0, 0, 0, 5, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_cfwwo")
+
+[node name="MazeWall1" type="StaticBody3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 10)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/MazeWall1"]
+transform = Transform3D(20, 0, 0, 0, 5, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_588hs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/MazeWall1"]
+transform = Transform3D(20, 0, 0, 0, 5, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_ja6lf")
+
+[node name="MazeWall2" type="StaticBody3D" parent="Walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10, 2.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/MazeWall2"]
+transform = Transform3D(20, 0, 0, 0, 5, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_588hs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/MazeWall2"]
+transform = Transform3D(20, 0, 0, 0, 5, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_ja6lf")
+
+[node name="MazeWall3" type="StaticBody3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -10)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/MazeWall3"]
+transform = Transform3D(20, 0, 0, 0, 5, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_588hs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/MazeWall3"]
+transform = Transform3D(20, 0, 0, 0, 5, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_ja6lf")
+
+[node name="LightsContainer" type="Node3D" parent="."]
+
+[node name="Lights" type="Node3D" parent="LightsContainer"]
+
+[node name="Light1" type="OmniLight3D" parent="LightsContainer/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.23066, 0)
+
+[node name="Light3" type="OmniLight3D" parent="LightsContainer/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.231, -5)
+
+[node name="Light2" type="OmniLight3D" parent="LightsContainer/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.231, 5)
+
+[node name="Light4" type="OmniLight3D" parent="LightsContainer/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 4.23066, 0)
+
+[node name="Light5" type="OmniLight3D" parent="LightsContainer/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 4.231, -5)
+
+[node name="Light6" type="OmniLight3D" parent="LightsContainer/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 4.231, 5)
+
+[node name="Light7" type="OmniLight3D" parent="LightsContainer/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 4.23066, 0)
+
+[node name="Light8" type="OmniLight3D" parent="LightsContainer/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 4.231, -5)
+
+[node name="Light9" type="OmniLight3D" parent="LightsContainer/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 4.231, 5)
+
+[node name="Light10" type="OmniLight3D" parent="LightsContainer/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 4.23066, 0)
+
+[node name="Light11" type="OmniLight3D" parent="LightsContainer/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 4.231, -5)
+
+[node name="Light12" type="OmniLight3D" parent="LightsContainer/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 4.231, 5)
+
+[node name="Light13" type="OmniLight3D" parent="LightsContainer/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 4.23066, 0)
+
+[node name="Light14" type="OmniLight3D" parent="LightsContainer/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 4.231, -5)
+
+[node name="Light15" type="OmniLight3D" parent="LightsContainer/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 4.231, 5)
+
+[node name="Light16" type="OmniLight3D" parent="LightsContainer/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 4.23066, 0)
+
+[node name="Light17" type="OmniLight3D" parent="LightsContainer/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 4.231, -5)
+
+[node name="Light18" type="OmniLight3D" parent="LightsContainer/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 4.231, 5)
+
+[node name="Lights2" type="Node3D" parent="LightsContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15)
+
+[node name="Light1" type="OmniLight3D" parent="LightsContainer/Lights2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.23066, 0)
+
+[node name="Light3" type="OmniLight3D" parent="LightsContainer/Lights2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.231, -5)
+
+[node name="Light2" type="OmniLight3D" parent="LightsContainer/Lights2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.231, 5)
+
+[node name="Light4" type="OmniLight3D" parent="LightsContainer/Lights2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 4.23066, 0)
+
+[node name="Light5" type="OmniLight3D" parent="LightsContainer/Lights2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 4.231, -5)
+
+[node name="Light6" type="OmniLight3D" parent="LightsContainer/Lights2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 4.231, 5)
+
+[node name="Light7" type="OmniLight3D" parent="LightsContainer/Lights2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 4.23066, 0)
+
+[node name="Light8" type="OmniLight3D" parent="LightsContainer/Lights2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 4.231, -5)
+
+[node name="Light9" type="OmniLight3D" parent="LightsContainer/Lights2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 4.231, 5)
+
+[node name="Light10" type="OmniLight3D" parent="LightsContainer/Lights2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 4.23066, 0)
+
+[node name="Light11" type="OmniLight3D" parent="LightsContainer/Lights2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 4.231, -5)
+
+[node name="Light12" type="OmniLight3D" parent="LightsContainer/Lights2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 4.231, 5)
+
+[node name="Light13" type="OmniLight3D" parent="LightsContainer/Lights2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 4.23066, 0)
+
+[node name="Light14" type="OmniLight3D" parent="LightsContainer/Lights2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 4.231, -5)
+
+[node name="Light15" type="OmniLight3D" parent="LightsContainer/Lights2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 4.231, 5)
+
+[node name="Light16" type="OmniLight3D" parent="LightsContainer/Lights2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 4.23066, 0)
+
+[node name="Light17" type="OmniLight3D" parent="LightsContainer/Lights2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 4.231, -5)
+
+[node name="Light18" type="OmniLight3D" parent="LightsContainer/Lights2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 4.231, 5)
+
+[node name="Lights3" type="Node3D" parent="LightsContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15)
+
+[node name="Light1" type="OmniLight3D" parent="LightsContainer/Lights3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.23066, 0)
+
+[node name="Light3" type="OmniLight3D" parent="LightsContainer/Lights3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.231, -5)
+
+[node name="Light2" type="OmniLight3D" parent="LightsContainer/Lights3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.231, 5)
+
+[node name="Light4" type="OmniLight3D" parent="LightsContainer/Lights3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 4.23066, 0)
+
+[node name="Light5" type="OmniLight3D" parent="LightsContainer/Lights3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 4.231, -5)
+
+[node name="Light6" type="OmniLight3D" parent="LightsContainer/Lights3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 4.231, 5)
+
+[node name="Light7" type="OmniLight3D" parent="LightsContainer/Lights3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 4.23066, 0)
+
+[node name="Light8" type="OmniLight3D" parent="LightsContainer/Lights3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 4.231, -5)
+
+[node name="Light9" type="OmniLight3D" parent="LightsContainer/Lights3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 4.231, 5)
+
+[node name="Light10" type="OmniLight3D" parent="LightsContainer/Lights3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 4.23066, 0)
+
+[node name="Light11" type="OmniLight3D" parent="LightsContainer/Lights3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 4.231, -5)
+
+[node name="Light12" type="OmniLight3D" parent="LightsContainer/Lights3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 4.231, 5)
+
+[node name="Light13" type="OmniLight3D" parent="LightsContainer/Lights3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 4.23066, 0)
+
+[node name="Light14" type="OmniLight3D" parent="LightsContainer/Lights3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 4.231, -5)
+
+[node name="Light15" type="OmniLight3D" parent="LightsContainer/Lights3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 4.231, 5)
+
+[node name="Light16" type="OmniLight3D" parent="LightsContainer/Lights3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 4.23066, 0)
+
+[node name="Light17" type="OmniLight3D" parent="LightsContainer/Lights3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 4.231, -5)
+
+[node name="Light18" type="OmniLight3D" parent="LightsContainer/Lights3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 4.231, 5)
+
+[node name="Lights4" type="Node3D" parent="LightsContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 0)
+
+[node name="Light1" type="OmniLight3D" parent="LightsContainer/Lights4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.23066, 0)
+
+[node name="Light3" type="OmniLight3D" parent="LightsContainer/Lights4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.231, -5)
+
+[node name="Light2" type="OmniLight3D" parent="LightsContainer/Lights4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.231, 5)
+
+[node name="Light4" type="OmniLight3D" parent="LightsContainer/Lights4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 4.23066, 0)
+
+[node name="Light5" type="OmniLight3D" parent="LightsContainer/Lights4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 4.231, -5)
+
+[node name="Light6" type="OmniLight3D" parent="LightsContainer/Lights4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 4.231, 5)
+
+[node name="Light7" type="OmniLight3D" parent="LightsContainer/Lights4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 4.23066, 0)
+
+[node name="Light8" type="OmniLight3D" parent="LightsContainer/Lights4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 4.231, -5)
+
+[node name="Light9" type="OmniLight3D" parent="LightsContainer/Lights4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 4.231, 5)
+
+[node name="Light10" type="OmniLight3D" parent="LightsContainer/Lights4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 4.23066, 0)
+
+[node name="Light11" type="OmniLight3D" parent="LightsContainer/Lights4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 4.231, -5)
+
+[node name="Light12" type="OmniLight3D" parent="LightsContainer/Lights4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 4.231, 5)
+
+[node name="Light13" type="OmniLight3D" parent="LightsContainer/Lights4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 4.23066, 0)
+
+[node name="Light14" type="OmniLight3D" parent="LightsContainer/Lights4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 4.231, -5)
+
+[node name="Light15" type="OmniLight3D" parent="LightsContainer/Lights4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 4.231, 5)
+
+[node name="Light16" type="OmniLight3D" parent="LightsContainer/Lights4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 4.23066, 0)
+
+[node name="Light17" type="OmniLight3D" parent="LightsContainer/Lights4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 4.231, -5)
+
+[node name="Light18" type="OmniLight3D" parent="LightsContainer/Lights4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 4.231, 5)

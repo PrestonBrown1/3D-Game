@@ -1,12 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bk0sd41d7jjch"]
+[gd_scene load_steps=4 format=3 uid="uid://bk0sd41d7jjch"]
 
 [ext_resource type="PackedScene" uid="uid://bbjroveyyxi1a" path="res://Player/player.tscn" id="1_efxd8"]
+[ext_resource type="PackedScene" uid="uid://cmeqt2d1lnsl5" path="res://Levels/level_1.tscn" id="2_jwf7o"]
 
 [sub_resource type="Environment" id="Environment_pdvut"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_yujga"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_js8bt"]
 
 [node name="Game" type="Node3D"]
 
@@ -15,16 +12,6 @@ environment = SubResource("Environment_pdvut")
 
 [node name="Player" parent="." instance=ExtResource("1_efxd8")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+[node name="LevelContainer" type="Node3D" parent="."]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-transform = Transform3D(40, 0, 0, 0, 1, 0, 0, 0, 40, 0, 0, 0)
-mesh = SubResource("BoxMesh_yujga")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(40, 0, 0, 0, 1, 0, 0, 0, 40, 0, 0, 0)
-shape = SubResource("BoxShape3D_js8bt")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 100, 0)
+[node name="Level1" parent="LevelContainer" instance=ExtResource("2_jwf7o")]

@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 
-const SPEED = 5.0
+const SPEED = 7.5
 const JUMP_VELOCITY = 4.5
 var MOUSE_SENSITIVITY = .01
 var MOUSE_RANGE = 1
@@ -9,6 +9,8 @@ var MOUSE_RANGE = 1
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+func _ready():
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _unhandled_input(event):
 	# if the mouse has moved
