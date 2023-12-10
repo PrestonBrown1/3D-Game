@@ -1,10 +1,9 @@
 [gd_scene load_steps=4 format=3 uid="uid://bbjroveyyxi1a"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_f7v1j"]
+[ext_resource type="PackedScene" uid="uid://cigvpyned4ftd" path="res://Assets/Gun.glb" id="2_6b2gb"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qpqom"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_0lovp"]
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_f7v1j")
@@ -15,7 +14,5 @@ shape = SubResource("CapsuleShape3D_qpqom")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
-[node name="Gun" type="MeshInstance3D" parent="Camera3D"]
-transform = Transform3D(0.195584, 0, 0, 0, 0.176751, 0, 0, 0, 1, 0.401508, -0.110008, -0.556295)
-mesh = SubResource("BoxMesh_0lovp")
-skeleton = NodePath("../..")
+[node name="Gun2" parent="Camera3D" instance=ExtResource("2_6b2gb")]
+transform = Transform3D(-3.0598e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.0598e-08, 0.4, -0.2, 0)
