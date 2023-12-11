@@ -2306,3 +2306,51 @@ shape = SubResource("BoxShape3D_o4axt")
 
 [node name="Enemy" parent="EnemyContainer" instance=ExtResource("1_0du0m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05323, -3.56607)
+
+[node name="Enemy2" parent="EnemyContainer" instance=ExtResource("1_0du0m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.3904, 1.05323, -37.5856)
+
+[node name="Enemy3" parent="EnemyContainer" instance=ExtResource("1_0du0m")]
+transform = Transform3D(-0.991016, 0, 0.133744, 0, 1, 0, -0.133744, 0, -0.991016, -6.78455, 1.05323, -48.4394)
+
+[node name="Enemy4" parent="EnemyContainer" instance=ExtResource("1_0du0m")]
+transform = Transform3D(0.0485012, 0, -0.998823, 0, 1, 0, 0.998823, 0, 0.0485012, 9.33357, 1.05323, -35.1855)
+
+[node name="Enemy5" parent="EnemyContainer" instance=ExtResource("1_0du0m")]
+transform = Transform3D(-0.999953, 0, -0.0096865, 0, 1, 0, 0.0096865, 0, -0.999953, 44.9092, 1.05323, -28.7557)
+
+[node name="Enemy6" parent="EnemyContainer" instance=ExtResource("1_0du0m")]
+transform = Transform3D(-0.999953, 0, -0.0096865, 0, 1, 0, 0.0096865, 0, -0.999953, 44.9092, 1.05323, -3.89607)
+
+[node name="Enemy7" parent="EnemyContainer" instance=ExtResource("1_0du0m")]
+transform = Transform3D(0.0781808, 0, -0.996939, 0, 1, 0, 0.996939, 0, 0.0781808, 32.612, 1.05323, 24.8558)
+
+[node name="Enemy8" parent="EnemyContainer" instance=ExtResource("1_0du0m")]
+transform = Transform3D(0.999514, 0, 0.0311841, 0, 1, 0, -0.0311841, 0, 0.999514, 14.4196, 1.05323, -1.26647)
+
+[node name="Enemy9" parent="EnemyContainer" instance=ExtResource("1_0du0m")]
+transform = Transform3D(0.999514, 0, 0.0311841, 0, 1, 0, -0.0311841, 0, 0.999514, -15.2732, 1.05323, 25.2396)
+
+[node name="Enemy10" parent="EnemyContainer" instance=ExtResource("1_0du0m")]
+transform = Transform3D(0.999514, 0, 0.0311841, 0, 1, 0, -0.0311841, 0, 0.999514, -5.12867, 1.05323, 45.9319)
+
+[node name="Enemy11" parent="EnemyContainer" instance=ExtResource("1_0du0m")]
+transform = Transform3D(0.999514, 0, 0.0311841, 0, 1, 0, -0.0311841, 0, 0.999514, 34.5795, 1.05323, 45.9319)
+
+[node name="Enemy12" parent="EnemyContainer" instance=ExtResource("1_0du0m")]
+transform = Transform3D(0.999514, 0, 0.0311841, 0, 1, 0, -0.0311841, 0, 0.999514, 26.7631, 1.05323, 33.9326)
+
+[node name="Enemy13" parent="EnemyContainer" instance=ExtResource("1_0du0m")]
+transform = Transform3D(0.999514, 0, 0.0311841, 0, 1, 0, -0.0311841, 0, 0.999514, -25.0153, 1.05323, -3.73545)
+
+[node name="Enemy14" parent="EnemyContainer" instance=ExtResource("1_0du0m")]
+transform = Transform3D(0.999514, 0, 0.0311841, 0, 1, 0, -0.0311841, 0, 0.999514, -35.0921, 1.05323, -20.0573)
+
+[node name="Enemy15" parent="EnemyContainer" instance=ExtResource("1_0du0m")]
+transform = Transform3D(0.999514, 0, 0.0311841, 0, 1, 0, -0.0311841, 0, 0.999514, -35.0921, 1.05323, 47.6655)
+
+[node name="Enemy16" parent="EnemyContainer" instance=ExtResource("1_0du0m")]
+transform = Transform3D(0.999514, 0, 0.0311841, 0, 1, 0, -0.0311841, 0, 0.999514, 4.73608, 1.05323, 39.9844)
+
+[node name="Enemy17" parent="EnemyContainer" instance=ExtResource("1_0du0m")]
+transform = Transform3D(0.999514, 0, 0.0311841, 0, 1, 0, -0.0311841, 0, 0.999514, 30.7881, 1.05323, -23.1998)
