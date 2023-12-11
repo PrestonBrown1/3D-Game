@@ -23,14 +23,10 @@ func _physics_process(delta):
 	#Get Direction to Player
 	var direction = atan((playerLocation.z - position.z)/(playerLocation.x - position.x))
 	
-	if playerLocation.z < global_position.z and playerLocation.x < global_position.x:
+	#Making enemy face player
+	if playerLocation.x < global_position.x:
 		direction *= -1
-	elif playerLocation.z < global_position.z and playerLocation.x > global_position.x:
-		direction *= -1
-		direction += deg_to_rad(180)
-	elif playerLocation.z > global_position.z and playerLocation.x < global_position.x:
-		direction *= -1
-	elif playerLocation.z > global_position.z and playerLocation.x > global_position.x:
+	elif playerLocation.x > global_position.x:
 		direction *= -1
 		direction += deg_to_rad(180)
 
