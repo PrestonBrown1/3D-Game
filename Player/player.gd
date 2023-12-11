@@ -6,6 +6,7 @@ const JUMP_VELOCITY = 4.5
 var MOUSE_SENSITIVITY = .01
 var MOUSE_RANGE = 1
 var health
+var bullet
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -13,6 +14,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	health = 100
+	bullet = load("res://Player/bullet.tscn")
 
 func _unhandled_input(event):
 	# if the mouse has moved
@@ -45,3 +47,15 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+	
+	#Handling Shooting
+	if Input.is_action_just_pressed("Shoot"):
+		var projectiles = get_node("/root/Game/Projectiles")
+		var newBullet = bullet.instantiate()
+		newBullet.global_position = $Camera3D/BulletPos.global_position
+		projectiles.add_child(newBullet)
+		
+func damage(d):
+	health -= d
+	if health <= 0:
+		queue_free()

@@ -5,6 +5,7 @@ const SPEED = 5
 const JUMP_VELOCITY = 4.5
 var player
 var following
+var health
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -12,6 +13,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 func _ready():
 	player = get_node("/root/Game/Player")
 	following = false
+	health = 100
 
 
 func _physics_process(delta):
@@ -70,3 +72,10 @@ func _on_area_3d_body_entered(body):
 		body.health -= 10
 		if body.health < 0:
 			body.queue_free()
+
+func damage(d):
+	var global = get_node("/root/Global")
+	health -= d
+	if health <= 0:
+		global.addScore(10)
+		queue_free()

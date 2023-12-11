@@ -19,3 +19,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.95438, 1.57148)
 [node name="LevelContainer" type="Node3D" parent="."]
 
 [node name="Level1" parent="LevelContainer" instance=ExtResource("2_jwf7o")]
+
+[node name="Projectiles" type="Node3D" parent="."]
