@@ -11,6 +11,7 @@
 environment = SubResource("Environment_pdvut")
 
 [node name="Player" parent="." instance=ExtResource("1_efxd8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.95438, 1.57148)
 
 [node name="LevelContainer" type="Node3D" parent="."]
 

@@ -2305,4 +2305,4 @@ shape = SubResource("BoxShape3D_o4axt")
 [node name="EnemyContainer" type="Node3D" parent="."]
 
 [node name="Enemy" parent="EnemyContainer" instance=ExtResource("1_0du0m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.642727, -3.13924)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05323, -3.56607)

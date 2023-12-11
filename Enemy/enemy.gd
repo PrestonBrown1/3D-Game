@@ -4,14 +4,12 @@ extends CharacterBody3D
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 var player
-var body
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready():
 	player = get_node("/root/Game/Player")
-	body = get_parent_node_3d()
 
 
 func _physics_process(delta):
@@ -23,10 +21,22 @@ func _physics_process(delta):
 	var playerLocation = player.global_position
 
 	#Get Direction to Player
-	var direction = atan((playerLocation.z - body.position.z)/(playerLocation.x - body.position.x))
-	body.rotation.x = direction
+	var direction = atan((playerLocation.z - position.z)/(playerLocation.x - position.x))
+	
+	if playerLocation.z < global_position.z and playerLocation.x < global_position.x:
+		direction *= -1
+	elif playerLocation.z < global_position.z and playerLocation.x > global_position.x:
+		direction *= -1
+		direction += deg_to_rad(180)
+	elif playerLocation.z > global_position.z and playerLocation.x < global_position.x:
+		direction *= -1
+	elif playerLocation.z > global_position.z and playerLocation.x > global_position.x:
+		direction *= -1
+		direction += deg_to_rad(180)
+
+	rotation.y = direction - deg_to_rad(90)
 	print(rad_to_deg(direction))
-	body.velocity.z = SPEED
+	#velocity.z = SPEED
 	
 
 	move_and_slide()
