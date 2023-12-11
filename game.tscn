@@ -1,11 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://bk0sd41d7jjch"]
+[gd_scene load_steps=5 format=3 uid="uid://bk0sd41d7jjch"]
 
 [ext_resource type="PackedScene" uid="uid://bbjroveyyxi1a" path="res://Player/player.tscn" id="1_efxd8"]
 [ext_resource type="PackedScene" uid="uid://cmeqt2d1lnsl5" path="res://Levels/level_1.tscn" id="2_jwf7o"]
+[ext_resource type="PackedScene" uid="uid://2fjf4devggx2" path="res://hud.tscn" id="3_62wf8"]
 
 [sub_resource type="Environment" id="Environment_pdvut"]
 
 [node name="Game" type="Node3D"]
+
+[node name="HUD" parent="." instance=ExtResource("3_62wf8")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_pdvut")
