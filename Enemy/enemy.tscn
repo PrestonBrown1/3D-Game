@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://d0yu4rw7mnhpi"]
+[gd_scene load_steps=5 format=3 uid="uid://d0yu4rw7mnhpi"]
 
 [ext_resource type="Script" path="res://Enemy/enemy.gd" id="1_llnf6"]
 [ext_resource type="PackedScene" uid="uid://ch7t1dqqovt3v" path="res://Assets/Enemy.glb" id="2_44m6y"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_aebjn"]
 radius = 0.3
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_01nyh"]
+size = Vector3(1, 2, 1)
 
 [node name="Enemy" type="CharacterBody3D"]
 script = ExtResource("1_llnf6")
@@ -14,3 +17,11 @@ script = ExtResource("1_llnf6")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.960076, 0)
 shape = SubResource("CapsuleShape3D_aebjn")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.960076, 0)
+shape = SubResource("BoxShape3D_01nyh")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

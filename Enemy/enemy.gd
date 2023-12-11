@@ -46,7 +46,7 @@ func _physics_process(delta):
 	else:
 		inputDir.y = 1
 		#velocity.z = SPEED
-	print(inputDir)
+	
 	var angle = (transform.basis * Vector3(inputDir.x, 0, inputDir.y)).normalized()
 	if angle:
 		velocity.x = angle.x * SPEED
@@ -56,3 +56,11 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+
+
+func _on_area_3d_body_entered(body):
+	if body.name == "Player":
+		print(body.health)
+		body.health -= 10
+		if body.health < 0:
+			body.queue_free()
