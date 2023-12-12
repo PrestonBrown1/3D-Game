@@ -74,6 +74,7 @@ func _on_area_3d_body_entered(body):
 			body.queue_free()
 
 func damage(d):
+	following = true
 	var global = get_node("/root/Global")
 	health -= d
 	if health <= 0:
