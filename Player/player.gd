@@ -7,6 +7,7 @@ var MOUSE_SENSITIVITY = .01
 var MOUSE_RANGE = 1
 var health
 var bullet
+var global
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -15,6 +16,7 @@ func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	health = 100
 	bullet = load("res://Player/bullet.tscn")
+	global = get_node("/root/Global")
 
 func _unhandled_input(event):
 	# if the mouse has moved
@@ -66,4 +68,4 @@ func _physics_process(delta):
 func damage(d):
 	health -= d
 	if health <= 0:
-		queue_free()
+		global.lose()

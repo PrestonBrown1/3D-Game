@@ -15,3 +15,6 @@ func addScore(s):
 
 func win():
 	get_tree().change_scene_to_file("res://UI/win.tscn")
+	
+func lose():
+	get_tree().change_scene_to_file("res://UI/lose.tscn")

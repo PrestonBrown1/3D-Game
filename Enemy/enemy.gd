@@ -17,51 +17,53 @@ func _ready():
 
 
 func _physics_process(delta):
+	player = get_node_or_null("/root/Game/Player")
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 
 	#Get Player Location
-	var playerLocation = player.global_position
-	var distance = sqrt(abs(playerLocation.x - global_position.x) ** 2 + abs(playerLocation.z - global_position.z) ** 2)
-	if distance < 10:
-		following = true
+	if player:
+		var playerLocation = player.global_position
+		var distance = sqrt(abs(playerLocation.x - global_position.x) ** 2 + abs(playerLocation.z - global_position.z) ** 2)
+		if distance < 10:
+			following = true
 
-	#Get Direction to Player
-	var direction = atan((playerLocation.z - position.z)/(playerLocation.x - position.x))
-	
-	#Making enemy face player
-	if playerLocation.x < global_position.x:
-		direction *= -1
-	elif playerLocation.x > global_position.x:
-		direction *= -1
-		direction += deg_to_rad(180)
-
-	rotation.y = direction - deg_to_rad(90)
-	
-	#Calculate Velocity
-	if following:
-		var inputDir = Vector2()
-		if rotation.y > 0:
-			inputDir.x = 1
-			#velocity.x = SPEED
-		else:
-			inputDir.x = -1
-			#velocity.x = SPEED * -1
-		if abs(rad_to_deg(rotation.y)) > 90:
-			inputDir.y = 1
-			#velocity.z = SPEED * -1
-		else:
-			inputDir.y = 1
-			#velocity.z = SPEED
+		#Get Direction to Player
+		var direction = atan((playerLocation.z - position.z)/(playerLocation.x - position.x))
 		
-		var angle = (transform.basis * Vector3(inputDir.x, 0, inputDir.y)).normalized()
-		if angle:
-			velocity.x = angle.x * SPEED
-			velocity.z = angle.z * SPEED
-		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
-			velocity.z = move_toward(velocity.z, 0, SPEED)
+		#Making enemy face player
+		if playerLocation.x < global_position.x:
+			direction *= -1
+		elif playerLocation.x > global_position.x:
+			direction *= -1
+			direction += deg_to_rad(180)
+
+		rotation.y = direction - deg_to_rad(90)
+		
+		#Calculate Velocity
+		if following:
+			var inputDir = Vector2()
+			if rotation.y > 0:
+				inputDir.x = 1
+				#velocity.x = SPEED
+			else:
+				inputDir.x = -1
+				#velocity.x = SPEED * -1
+			if abs(rad_to_deg(rotation.y)) > 90:
+				inputDir.y = 1
+				#velocity.z = SPEED * -1
+			else:
+				inputDir.y = 1
+				#velocity.z = SPEED
+			
+			var angle = (transform.basis * Vector3(inputDir.x, 0, inputDir.y)).normalized()
+			if angle:
+				velocity.x = angle.x * SPEED
+				velocity.z = angle.z * SPEED
+			else:
+				velocity.x = move_toward(velocity.x, 0, SPEED)
+				velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
 
@@ -69,9 +71,7 @@ func _physics_process(delta):
 func _on_area_3d_body_entered(body):
 	if body.name == "Player":
 		print(body.health)
-		body.health -= 10
-		if body.health < 0:
-			body.queue_free()
+		body.damage(10)
 
 func damage(d):
 	following = true
