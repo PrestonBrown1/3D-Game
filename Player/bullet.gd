@@ -9,6 +9,7 @@ func _ready():
 	camera = get_node("/root/Game/Player/Camera3D")
 	self.velocity = -1 * player.global_transform.basis.z * SPEED
 	self.velocity.y = camera.global_rotation.x * SPEED
+	self.velocity += player.velocity
 
 func _physics_process(delta):
 	move_and_slide()
