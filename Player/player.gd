@@ -18,13 +18,14 @@ func _ready():
 
 func _unhandled_input(event):
 	# if the mouse has moved
-	if event is InputEventMouseMotion:
-		# up-down motion, applied to the $Pivot
-		$Camera3D.rotate_x(-event.relative.y * MOUSE_SENSITIVITY)
-		# make sure we can't look inside ourselves :)
-		$Camera3D.rotation.x = clamp($Camera3D.rotation.x, -MOUSE_RANGE, MOUSE_RANGE)
-		# left-right motion, applied to the Player
-		rotate_y(-event.relative.x * MOUSE_SENSITIVITY)
+	if get_tree().paused == false:
+		if event is InputEventMouseMotion:
+			# up-down motion, applied to the $Pivot
+			$Camera3D.rotate_x(-event.relative.y * MOUSE_SENSITIVITY)
+			# make sure we can't look inside ourselves :)
+			$Camera3D.rotation.x = clamp($Camera3D.rotation.x, -MOUSE_RANGE, MOUSE_RANGE)
+			# left-right motion, applied to the Player
+			rotate_y(-event.relative.x * MOUSE_SENSITIVITY)
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -54,6 +55,13 @@ func _physics_process(delta):
 		var newBullet = bullet.instantiate()
 		newBullet.global_position = $Camera3D/BulletPos.global_position
 		projectiles.add_child(newBullet)
+		
+	#Handling Pausing
+	if Input.is_action_just_pressed("Menu"):
+		get_tree().paused = true
+		var pauseMenu = get_node("/root/Game/Pause Menu")
+		pauseMenu.show()
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		
 func damage(d):
 	health -= d
