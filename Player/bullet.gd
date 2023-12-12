@@ -1,10 +1,17 @@
-extends Node3D
+extends CharacterBody3D
 var player
+var camera
+const SPEED = 20
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player = get_node("/root/Game/Player")
+	camera = get_node("/root/Game/Player/Camera3D")
+	self.velocity = -1 * player.global_transform.basis.z * SPEED
+	self.velocity.y = camera.global_rotation.x * SPEED
 
+func _physics_process(delta):
+	move_and_slide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
