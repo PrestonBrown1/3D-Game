@@ -6,6 +6,7 @@ A player that can move around a 3D environment,
 A maze for a level,
 A gun that you can fire,
 Enemies that will chase you if you fire at them or get too close,
+Main Menu
 
 ## What Makes this a Game?
 The game has enemies (a challenge) and an end goal of killing them or finding the golden cube in the maze to win!
