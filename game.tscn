@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bk0sd41d7jjch"]
+[gd_scene load_steps=7 format=3 uid="uid://bk0sd41d7jjch"]
 
 [ext_resource type="PackedScene" uid="uid://bbjroveyyxi1a" path="res://Player/player.tscn" id="1_efxd8"]
 [ext_resource type="PackedScene" uid="uid://cmeqt2d1lnsl5" path="res://Levels/level_1.tscn" id="2_jwf7o"]
 [ext_resource type="PackedScene" uid="uid://2fjf4devggx2" path="res://UI/hud.tscn" id="3_62wf8"]
 [ext_resource type="PackedScene" uid="uid://dy2654p2r8ayd" path="res://UI/pause_menu.tscn" id="4_cqg2b"]
+[ext_resource type="AudioStream" uid="uid://dbga0x5qipmng" path="res://Assets/3DProjectMusic.mp3" id="5_uqll0"]
 
 [sub_resource type="Environment" id="Environment_pdvut"]
 
@@ -24,3 +25,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.95438, 1.57148)
 [node name="Projectiles" type="Node3D" parent="."]
 
 [node name="Pause Menu" parent="." instance=ExtResource("4_cqg2b")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_uqll0")
+autoplay = true
