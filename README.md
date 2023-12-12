@@ -1,15 +1,22 @@
 # Project Name
-Context and date
-Description
+Maze-Shooter 3D Game, a game where you have to work your way through a maze while avoiding/killing enemies chasing you.
 
 ## Implementation
-A player that can move around a 3D environment
+A player that can move around a 3D environment,
+A maze for a level,
+A gun that you can fire,
+Enemies that will chase you if you fire at them or get too close,
 
 ## What Makes this a Game?
+The game has enemies (a challenge) and an end goal of killing them or finding the golden cube in the maze to win!
 
 ## References
 
 ## Future Development
+Music,
+Enemy animations,
+Better graphics,
+Sounds,
 
 ## Created by
 Preston Brown
