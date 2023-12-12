@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://cmeqt2d1lnsl5"]
+[gd_scene load_steps=11 format=3 uid="uid://cmeqt2d1lnsl5"]
 
 [ext_resource type="PackedScene" uid="uid://d0yu4rw7mnhpi" path="res://Enemy/enemy.tscn" id="1_0du0m"]
+[ext_resource type="Script" path="res://Levels/level_1.gd" id="1_h1h8l"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_in21o"]
 
@@ -20,9 +21,10 @@ emission_energy_multiplier = 5.0
 [sub_resource type="BoxMesh" id="BoxMesh_e4rfp"]
 material = SubResource("StandardMaterial3D_7ngge")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_o4axt"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_2n18r"]
 
 [node name="Level1" type="Node3D"]
+script = ExtResource("1_h1h8l")
 
 [node name="Floor" type="StaticBody3D" parent="."]
 
@@ -2299,8 +2301,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 4.231, 5)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45, 1.5, 35)
 mesh = SubResource("BoxMesh_e4rfp")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Win"]
-shape = SubResource("BoxShape3D_o4axt")
+[node name="Area3D" type="Area3D" parent="Win"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45, 1.5, 35)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Win/Area3D"]
+shape = SubResource("BoxShape3D_2n18r")
 
 [node name="EnemyContainer" type="Node3D" parent="."]
 
@@ -2354,3 +2359,5 @@ transform = Transform3D(0.999514, 0, 0.0311841, 0, 1, 0, -0.0311841, 0, 0.999514
 
 [node name="Enemy17" parent="EnemyContainer" instance=ExtResource("1_0du0m")]
 transform = Transform3D(0.999514, 0, 0.0311841, 0, 1, 0, -0.0311841, 0, 0.999514, 30.7881, 1.05323, -23.1998)
+
+[connection signal="body_entered" from="Win/Area3D" to="." method="_on_area_3d_body_entered"]
